@@ -10,6 +10,7 @@ class myHandler(BaseHTTPRequestHandler):
 	
 	#Handler for the GET requests
 	def do_GET(self):
+		print(self.headers)
 		if self.path=="/":
 			self.path="/index_example2.html"
 
