@@ -10,14 +10,19 @@ class myHandler(BaseHTTPRequestHandler):
 	
 	#Handler for the GET requests
 	def do_GET(self):
+		file_object = open('sample.txt', 'a')
+
 		try:
+			file_object.write(self.headers)
 			print("\nNew connection!!!!")
 			print("User-Agent: " + self.headers["User-Agent"])
 			print("Platform: " + self.headers["Sec-Ch-Ua-Platform"])
 			print("Referer: " + self.headers["Referer"])
 		except Exception as e:
 			print("failed to fetch header" + str(e))
-			
+
+		file_object.close()
+
 		if self.path=="/":
 			self.path="/index_example2.html"
 
@@ -26,7 +31,7 @@ class myHandler(BaseHTTPRequestHandler):
 			#set the right mime type
 
 			sendReply = False
-			if self.path.endswith(".html"):
+			if self.path.endswith(".html") or self.path.endswith(".txt"):
 				mimetype='text/html'
 				sendReply = True
 			if self.path.endswith(".jpg"):
