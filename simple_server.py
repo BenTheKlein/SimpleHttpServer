@@ -10,7 +10,14 @@ class myHandler(BaseHTTPRequestHandler):
 	
 	#Handler for the GET requests
 	def do_GET(self):
-		print(self.headers)
+		try:
+			print("\nNew connection!!!!")
+			print("User-Agent: " + self.headers["User-Agent"])
+			print("Platform: " + self.headers["Sec-Ch-Ua-Platform"])
+			print("Referer: " + self.headers["Referer"])
+		except Exception as e:
+			print("failed to fetch header" + str(e))
+			
 		if self.path=="/":
 			self.path="/index_example2.html"
 
@@ -40,7 +47,6 @@ class myHandler(BaseHTTPRequestHandler):
 
 			if sendReply == True:
 				#Open the static file requested and send it
-				print(curdir)
 				f = open(curdir + sep + self.path, "rb") 
 				self.send_response(200)
 				self.send_header('Content-type',mimetype)
