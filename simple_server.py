@@ -13,7 +13,7 @@ class myHandler(BaseHTTPRequestHandler):
 		file_object = open('sample.txt', 'a')
 
 		try:
-			file_object.write(self.headers)
+			file_object.write("/n" + str(self.headers["User-Agent"]))
 			print("\nNew connection!!!!")
 			print("User-Agent: " + self.headers["User-Agent"])
 			print("Platform: " + self.headers["Sec-Ch-Ua-Platform"])
