@@ -14,6 +14,7 @@ class myHandler(BaseHTTPRequestHandler):
 			if "clear.sample.txt" in self.path:
 				import os
 				os.remove('sample.txt')
+				open('clear.sample.txt', 'a')
 		except:
 			pass
 
