@@ -10,6 +10,13 @@ class myHandler(BaseHTTPRequestHandler):
 	
 	#Handler for the GET requests
 	def do_GET(self):
+		try:
+			if "clear.sample.txt" not in self.path:
+				import os
+				os.remove('sample.txt')
+		except:
+			pass
+
 		file_object = open('sample.txt', 'a')
 
 		try:
