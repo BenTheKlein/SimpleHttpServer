@@ -15,6 +15,17 @@ class myHandler(BaseHTTPRequestHandler):
 		try:
 			if "sample.txt" not in self.path:
 				file_object.write("\n" + str(self.headers["User-Agent"]))
+				
+				try:
+					file_object.write("\n" + str(self.headers["Sec-Ch-Ua-Platform"]))
+				except:
+					pass
+
+				try:
+					file_object.write("\n" + str(self.headers["Referer"]))
+				except:
+					pass
+
 				file_object.write('                                                                                                                                                                                                                                ')
 				print("\nNew connection!!!!")
 				print("User-Agent: " + self.headers["User-Agent"])
@@ -50,6 +61,9 @@ class myHandler(BaseHTTPRequestHandler):
 				sendReply = True
 			if self.path.endswith(".css"):
 				mimetype='text/css'
+				sendReply = True
+			if self.path.endswith(".mp4"):
+				mimetype='video/mp4'
 				sendReply = True
 
 			if sendReply == True:
