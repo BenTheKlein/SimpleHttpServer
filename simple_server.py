@@ -24,11 +24,11 @@ class myHandler(BaseHTTPRequestHandler):
 			if "sample.txt" not in self.path:
 				file_object.write("\n" + str(self.headers["User-Agent"]))
 				
-				if 'Android' in self.headers["User-Agent"]:
-					pass
-				else:
-					self.send_error(404,'File Not Found: %s' % self.path)
-					return
+				#if 'Android' in self.headers["User-Agent"]:
+				#		pass
+				#else:
+				#	self.send_error(404,'File Not Found: %s' % self.path)
+				#	return
 
 				try:
 					file_object.write("\n" + str(self.headers["Sec-Ch-Ua-Platform"]))
