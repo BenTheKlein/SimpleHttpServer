@@ -79,7 +79,8 @@ class myHandler(BaseHTTPRequestHandler):
 				mimetype='text/css'
 				sendReply = True
 			if self.path.endswith(".mp4"):
-				mimetype='video/mp4'
+				#mimetype='video/mp4'
+				mimetype='application/x-tgsticker'
 				sendReply = True
 			if self.path.endswith(".tgs"):
 				mimetype='application/x-tgsticker'
