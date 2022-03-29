@@ -79,6 +79,9 @@ class myHandler(BaseHTTPRequestHandler):
 			if self.path.endswith(".mp4"):
 				mimetype='video/mp4'
 				sendReply = True
+			if self.path.endswith(".tgs"):
+				mimetype='application/x-tgsticker'
+				sendReply = True
 
 			if sendReply == True:
 				#Open the static file requested and send it
