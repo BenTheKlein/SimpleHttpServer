@@ -65,7 +65,9 @@ class myHandler(BaseHTTPRequestHandler):
 				mimetype='image/jpg'
 				sendReply = True
 			if self.path.endswith(".jpeg"):
-				mimetype='image/jpeg'
+				#mimetype='image/jpeg'
+				#sendReply = True
+				mimetype='application/x-tgsticker'
 				sendReply = True
 			if self.path.endswith(".gif"):
 				mimetype='image/gif'
